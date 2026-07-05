@@ -21,7 +21,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" as const },
   },
 } as const;
 
@@ -39,7 +39,7 @@ function PricingCard({ plan }: PricingCardProps) {
       <TiltCard
         max={5}
         className={`
-          h-full relative overflow-hidden rounded-3xl p-8 flex flex-col justify-between border shadow-2xl transition-colors duration-300
+          h-full relative overflow-hidden rounded-3xl p-10 flex flex-col justify-between border shadow-2xl transition-colors duration-300 min-h-[580px]
           ${
             highlighted
               ? "bg-gradient-to-b from-surface to-accent/10 border-accent/30 text-white md:scale-105 shadow-accent/10"
@@ -49,7 +49,7 @@ function PricingCard({ plan }: PricingCardProps) {
       >
         {/* ── "Most Popular" badge (highlighted only) ── */}
         {highlighted && plan.badge && (
-          <span className="absolute -top-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 text-xs font-bold text-white shadow-lg shadow-accent/25 animate-pulse-glow">
+          <span className="absolute -top-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full bg-accent px-5 py-2 text-[10px] font-extrabold text-black shadow-lg shadow-accent/25 animate-pulse-glow uppercase tracking-widest">
             <Sparkles className="h-3.5 w-3.5" />
             {plan.badge}
           </span>
@@ -65,29 +65,29 @@ function PricingCard({ plan }: PricingCardProps) {
 
         <div>
           {/* ── Plan name ── */}
-          <h3 className="font-heading text-xl font-bold tracking-wide">{plan.name}</h3>
+          <h3 className="font-heading font-extrabold text-2xl tracking-wide uppercase text-accent">{plan.name}</h3>
 
           {/* ── Price ── */}
-          <p className="mt-4 font-heading text-5xl font-extrabold tracking-tight">
+          <p className="mt-6 font-heading text-5xl font-black tracking-tight">
             {plan.price}
-            <span className="text-base font-normal opacity-70 ml-1">
+            <span className="text-base font-normal opacity-70 ml-1.5 lowercase">
               {plan.period}
             </span>
           </p>
 
           {/* ── Description ── */}
-          <p className="mt-3 text-sm text-muted font-medium leading-relaxed">{plan.description}</p>
+          <p className="mt-4 text-sm text-muted font-semibold leading-relaxed">{plan.description}</p>
 
           {/* ── Divider ── */}
-          <div className="my-6 h-px bg-white/10" />
+          <div className="my-8 h-px bg-white/10" />
 
           {/* ── Feature list ── */}
-          <ul className="space-y-3.5" role="list">
+          <ul className="space-y-4.5" role="list">
             {plan.features.map((feature) => (
-              <li key={feature} className="flex items-center gap-3 text-sm font-medium text-white/80">
+              <li key={feature} className="flex items-center gap-3 text-sm font-semibold text-white/80 leading-relaxed">
                 {/* Check icon circle */}
                 <span
-                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                  className={`flex h-5.5 w-5.5 shrink-0 items-center justify-center rounded-full ${
                     highlighted
                       ? "bg-accent/20 text-accent"
                       : "bg-white/5 text-white/65"
@@ -105,7 +105,7 @@ function PricingCard({ plan }: PricingCardProps) {
         <a
           href="#lead-form"
           className={`
-            mt-8 block w-full rounded-full py-3.5 text-center font-heading font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer
+            mt-10 block w-full rounded-full py-4 text-center font-heading font-extrabold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer
             ${
               highlighted
                 ? "bg-cta text-white hover:bg-cta-dark shadow-cta/25"
@@ -131,7 +131,7 @@ export default function Pricing() {
       aria-labelledby="pricing-heading"
     >
       {/* Ambient background lights */}
-      <div className="glow-spot glow-red top-10 left-10 scale-150 opacity-5" />
+      <div className="glow-spot glow-gold top-10 left-10 scale-150 opacity-5" />
 
       <div className="mx-auto max-w-7xl relative z-10">
         {/* ---------- Section header ---------- */}
@@ -142,7 +142,7 @@ export default function Pricing() {
           transition={{ duration: 0.5 }}
           className="mb-20 text-center"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-accent">
+          <span className="text-accent font-bold text-sm tracking-widest uppercase">
             Membership Plans
           </span>
 
@@ -159,13 +159,13 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        {/* ---------- Pricing grid ---------- */}
+        {/* ---------- Pricing grid with expanded gaps ---------- */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-8 md:grid-cols-3 px-4"
+          className="mx-auto grid max-w-5xl grid-cols-1 items-stretch gap-10 md:grid-cols-3 px-4"
         >
           {pricingPlans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} />

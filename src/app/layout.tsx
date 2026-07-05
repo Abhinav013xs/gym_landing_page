@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 /* ===== Font Configuration ===== */
-const poppins = Poppins({
+const outfit = Outfit({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -115,7 +115,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
+      className={`${outfit.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
       <head>
         <script

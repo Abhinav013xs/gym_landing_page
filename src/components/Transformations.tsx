@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, X, Sparkles, Scale, Percent, Clock } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Scale, Percent, Clock } from "lucide-react";
 import { transformations, type Transformation } from "@/lib/data";
 
 /* ── Animation Variants ─────────────────────────────────────────── */
@@ -50,7 +50,7 @@ function ComparisonSlider({
   fatBefore,
   fatAfter,
   name,
-  heightClass = "h-64 sm:h-72",
+  heightClass = "h-72 sm:h-80",
 }: ComparisonSliderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [sliderPos, setSliderPos] = useState<number>(50); // percentage (0 - 100)
@@ -124,11 +124,11 @@ function ComparisonSlider({
       <div
         className={`absolute inset-0 bg-gradient-to-br ${beforeGradient} flex flex-col items-center justify-center`}
       >
-        <span className="text-white/40 text-xs uppercase tracking-widest mb-1 font-bold">
+        <span className="text-white/40 text-xs uppercase tracking-widest mb-2 font-extrabold">
           Before
         </span>
         <svg
-          className="w-14 h-14 text-white/10 mb-2"
+          className="w-16 h-16 text-white/10 mb-3"
           viewBox="0 0 64 64"
           fill="currentColor"
           aria-hidden="true"
@@ -136,8 +136,8 @@ function ComparisonSlider({
           <ellipse cx="32" cy="16" rx="10" ry="12" />
           <path d="M16 60 C16 38 48 38 48 60Z" />
         </svg>
-        <span className="text-white font-extrabold text-lg">{weightBefore} kg</span>
-        <span className="text-white/60 text-xs mt-0.5">{fatBefore}% Fat</span>
+        <span className="text-white font-extrabold text-xl">{weightBefore} kg</span>
+        <span className="text-white/60 text-xs mt-1 font-semibold">{fatBefore}% Fat</span>
       </div>
 
       {/* ── AFTER layer (clipped slider layer) ── */}
@@ -145,11 +145,11 @@ function ComparisonSlider({
         className={`absolute inset-0 bg-gradient-to-br ${afterGradient} flex flex-col items-center justify-center`}
         style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
       >
-        <span className="text-white/60 text-xs uppercase tracking-widest mb-1 font-bold">
+        <span className="text-white/60 text-xs uppercase tracking-widest mb-2 font-extrabold">
           After
         </span>
         <svg
-          className="w-14 h-14 text-white/20 mb-2"
+          className="w-16 h-16 text-white/20 mb-3"
           viewBox="0 0 64 64"
           fill="currentColor"
           aria-hidden="true"
@@ -157,8 +157,8 @@ function ComparisonSlider({
           <ellipse cx="32" cy="14" rx="9" ry="11" />
           <path d="M20 58 C20 36 44 36 44 58Z" />
         </svg>
-        <span className="text-accent font-black text-xl">{weightAfter} kg</span>
-        <span className="text-accent/80 text-xs mt-0.5 font-bold">{fatAfter}% Fat</span>
+        <span className="text-accent font-black text-2xl">{weightAfter} kg</span>
+        <span className="text-accent/80 text-xs mt-1 font-bold">{fatAfter}% Fat</span>
       </div>
 
       {/* ── Divider line + handle ── */}
@@ -167,7 +167,7 @@ function ComparisonSlider({
         style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
       >
         <div className="w-0.5 h-full bg-accent/60 mx-auto" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-surface border border-accent/40 shadow-lg flex items-center justify-center gap-0.5 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface border border-accent/40 shadow-lg flex items-center justify-center gap-0.5 pointer-events-none">
           <ChevronLeft className="w-3.5 h-3.5 text-accent" />
           <ChevronRight className="w-3.5 h-3.5 text-accent" />
         </div>
@@ -204,7 +204,7 @@ function TransformationCard({ item, index, onViewStory }: TransformationCardProp
       variants={cardVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between group hover:border-accent/20 transition-all duration-300"
+      className="bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between group hover:border-accent/20 transition-all duration-300 min-h-[580px]"
     >
       <div>
         {/* Comparison Slider */}
@@ -216,52 +216,53 @@ function TransformationCard({ item, index, onViewStory }: TransformationCardProp
           fatBefore={item.fatBefore}
           fatAfter={item.fatAfter}
           name={item.name}
+          heightClass="h-72 sm:h-80"
         />
 
-        {/* Card info */}
-        <div className="p-6">
-          <div className="flex justify-between items-start gap-4">
+        {/* Card info with generous spacing */}
+        <div className="p-8">
+          <div className="flex justify-between items-start gap-4 mb-4">
             <div>
-              <h3 className="font-heading font-bold text-lg text-white group-hover:text-accent transition-colors">
+              <h3 className="font-heading font-extrabold text-xl text-white group-hover:text-accent transition-colors">
                 {item.name}
               </h3>
-              <p className="text-muted text-xs mt-0.5">
+              <p className="text-muted text-xs mt-1.5 font-semibold">
                 {item.age} Years • {item.gender}
               </p>
             </div>
-            <span className="bg-accent/10 text-accent text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <span className="bg-accent/10 text-accent text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest">
               {item.program}
             </span>
           </div>
 
-          {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-4 mt-5 bg-background/50 border border-white/5 p-4 rounded-2xl">
-            <div className="flex items-center gap-2">
-              <Scale className="w-4 h-4 text-accent" />
+          {/* Stats grid with increased spacing */}
+          <div className="grid grid-cols-2 gap-4 mt-6 bg-background/50 border border-white/5 p-5 rounded-2xl">
+            <div className="flex items-center gap-3">
+              <Scale className="w-5 h-5 text-accent" />
               <div>
-                <span className="text-[10px] text-muted uppercase tracking-wider block">Lost Weight</span>
-                <span className="font-bold text-sm text-white">-{weightDiff} kg</span>
+                <span className="text-[10px] text-muted uppercase tracking-widest block font-bold">Lost Weight</span>
+                <span className="font-heading font-black text-base text-white">-{weightDiff} kg</span>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Percent className="w-4 h-4 text-accent" />
+            <div className="flex items-center gap-3">
+              <Percent className="w-5 h-5 text-accent" />
               <div>
-                <span className="text-[10px] text-muted uppercase tracking-wider block">Fat Reduced</span>
-                <span className="font-bold text-sm text-white">-{fatDiff}% Fat</span>
+                <span className="text-[10px] text-muted uppercase tracking-widest block font-bold">Fat Reduced</span>
+                <span className="font-heading font-black text-base text-white">-{fatDiff}% Fat</span>
               </div>
             </div>
           </div>
 
-          <p className="text-muted italic text-xs mt-4 leading-relaxed line-clamp-2">
+          <p className="text-muted italic text-xs mt-6 leading-relaxed line-clamp-2 font-medium">
             &ldquo;{item.quote}&rdquo;
           </p>
         </div>
       </div>
 
-      <div className="px-6 pb-6 pt-2">
+      <div className="px-8 pb-8 pt-2">
         <button
           onClick={() => onViewStory(item.id)}
-          className="w-full bg-white/5 hover:bg-cta hover:text-white border border-white/10 hover:border-cta text-white font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl transition-all duration-300 active:scale-95 cursor-pointer"
+          className="w-full bg-white/5 hover:bg-cta hover:text-white border border-white/10 hover:border-cta text-white font-heading font-extrabold text-xs uppercase tracking-widest py-4 rounded-2xl transition-all duration-300 active:scale-95 cursor-pointer"
         >
           View Success Story
         </button>
@@ -289,7 +290,7 @@ function Lightbox({ item, onClose, onPrev, onNext, current, total }: LightboxPro
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div
@@ -303,7 +304,7 @@ function Lightbox({ item, onClose, onPrev, onNext, current, total }: LightboxPro
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-background border border-white/10 shadow flex items-center justify-center hover:border-accent/40 transition-colors cursor-pointer text-white"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-background border border-white/10 shadow flex items-center justify-center hover:border-accent/40 transition-colors cursor-pointer text-white"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -318,64 +319,64 @@ function Lightbox({ item, onClose, onPrev, onNext, current, total }: LightboxPro
           fatBefore={item.fatBefore}
           fatAfter={item.fatAfter}
           name={item.name}
-          heightClass="h-72 sm:h-80"
+          heightClass="h-80 sm:h-96"
         />
 
-        {/* Body */}
-        <div className="p-6 sm:p-8">
-          <div className="flex items-start justify-between gap-4">
+        {/* Body with generous spacing */}
+        <div className="p-8 sm:p-10">
+          <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
                 {item.name}
               </h3>
-              <p className="text-muted text-sm mt-1">
+              <p className="text-muted text-sm mt-1.5 font-semibold">
                 {item.age} years • {item.gender}
               </p>
             </div>
-            <span className="inline-block bg-accent/15 text-accent text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap uppercase tracking-wider">
+            <span className="inline-block bg-accent/15 text-accent text-xs font-extrabold px-4 py-2 rounded-full whitespace-nowrap uppercase tracking-widest">
               {item.program}
             </span>
           </div>
 
           {/* Full stats breakdown */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 bg-background border border-white/5 rounded-2xl p-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 bg-background border border-white/5 rounded-2xl p-6">
             <div className="text-center">
-              <span className="text-[10px] text-muted uppercase tracking-wider block mb-1">Before</span>
-              <span className="font-bold text-base text-white">{item.weightBefore} kg ({item.fatBefore}%)</span>
+              <span className="text-[10px] text-muted uppercase tracking-widest block mb-2 font-bold">Before</span>
+              <span className="font-heading font-black text-base text-white">{item.weightBefore} kg ({item.fatBefore}%)</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-muted uppercase tracking-wider block mb-1">After</span>
-              <span className="font-bold text-base text-white">{item.weightAfter} kg ({item.fatAfter}%)</span>
+              <span className="text-[10px] text-muted uppercase tracking-widest block mb-2 font-bold">After</span>
+              <span className="font-heading font-black text-base text-white">{item.weightAfter} kg ({item.fatAfter}%)</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-muted uppercase tracking-wider block mb-1">Weight Loss</span>
-              <span className="font-bold text-base text-accent">-{weightDiff} kg</span>
+              <span className="text-[10px] text-muted uppercase tracking-widest block mb-2 font-bold">Weight Loss</span>
+              <span className="font-heading font-black text-base text-accent">-{weightDiff} kg</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-muted uppercase tracking-wider block mb-1">Fat Reduced</span>
-              <span className="font-bold text-base text-accent">-{fatDiff}% Fat</span>
+              <span className="text-[10px] text-muted uppercase tracking-widest block mb-2 font-bold">Fat Reduced</span>
+              <span className="font-heading font-black text-base text-accent">-{fatDiff}% Fat</span>
             </div>
           </div>
 
-          <blockquote className="mt-6 border-l-4 border-accent pl-4">
-            <p className="text-muted italic text-base leading-relaxed">
+          <blockquote className="mt-8 border-l-4 border-accent pl-4">
+            <p className="text-muted italic text-base leading-relaxed font-medium">
               &ldquo;{item.quote}&rdquo;
             </p>
           </blockquote>
 
           {/* Details */}
-          <div className="mt-6">
-            <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-accent">
+          <div className="mt-8">
+            <h4 className="font-heading font-extrabold text-xs uppercase tracking-widest text-accent">
               Transformation Process
             </h4>
-            <p className="text-white font-semibold text-sm mt-1.5">{item.program} Blueprint</p>
-            <p className="text-muted text-sm mt-1">
+            <p className="text-white font-extrabold text-base mt-2">{item.program} Blueprint</p>
+            <p className="text-muted text-sm mt-1.5 leading-relaxed font-medium">
               Completed under elite metabolic planning over a duration of {item.duration}. Includes custom calorie distributions and progressive loading metrics.
             </p>
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10">
+          <div className="flex items-center justify-between mt-10 pt-8 border-t border-white/10">
             <button
               onClick={onPrev}
               className="flex items-center gap-2 text-sm font-semibold text-muted hover:text-white transition-colors cursor-pointer"
@@ -470,7 +471,7 @@ export default function Transformations() {
           animate={sectionInView ? "visible" : "hidden"}
           className="text-center mb-20"
         >
-          <span className="text-accent tracking-[0.2em] text-sm font-semibold uppercase">
+          <span className="text-accent tracking-[0.2em] text-sm font-bold uppercase">
             Real Results
           </span>
           <h2
@@ -485,8 +486,8 @@ export default function Transformations() {
           </p>
         </motion.div>
 
-        {/* ── Cards Grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        {/* ── Cards Grid with Expanded Spacing ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
           {transformations.slice(0, 6).map((item, index) => (
             <TransformationCard
               key={item.id}
@@ -506,7 +507,7 @@ export default function Transformations() {
         >
           <a
             href="#lead-form"
-            className="inline-block bg-cta hover:bg-cta-dark text-white font-heading font-bold text-sm uppercase tracking-wider rounded-full px-12 py-4.5 transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg shadow-cta/35 cursor-pointer"
+            className="inline-block bg-cta hover:bg-cta-dark text-white font-heading font-extrabold text-sm uppercase tracking-widest rounded-full px-12 py-5 transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg shadow-cta/35 cursor-pointer"
           >
             Start My Transformation
           </a>

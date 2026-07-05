@@ -20,8 +20,8 @@
   --color-glass: rgba(255, 255, 255, 0.02);
   --color-glass-light: rgba(255, 255, 255, 0.05);
 
-  --font-heading: "Poppins", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
 
   --animate-fade-in: fade-in 0.6s ease-out forwards;
   --animate-slide-up: slide-up 0.6s ease-out forwards;
@@ -52,6 +52,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  line-height: 1.625; /* leading-relaxed equivalent for optimal vertical spacing */
+  letter-spacing: 0.02em; /* spacious tracking */
 }
 
 /* ===== Light Mode Overrides (System / Mode Toggle) ===== */
@@ -82,8 +84,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.01em; /* slight geometric expansion */
 }
 
 /* ===== Selection ===== */
@@ -224,19 +226,20 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #D4AF37, #AA820A);
 }
 
+/* Expanded section padding to provide breathing room */
 .section-padding {
-  padding: 6rem 1.5rem;
+  padding: 8rem 1.5rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding: 8rem 2.5rem;
+    padding: 10rem 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 9rem 5rem;
+    padding: 12rem 6rem;
   }
 }
 

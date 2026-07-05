@@ -21,7 +21,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" as const },
   },
 } as const;
 
@@ -38,7 +38,7 @@ function SocialIcon({ icon, label, href = "#" }: SocialIconProps) {
     <a
       href={href}
       aria-label={label}
-      className="rounded-full bg-white/10 p-2.5 text-white transition-all duration-200 hover:bg-accent hover:scale-110"
+      className="rounded-full bg-white/10 p-3 text-white transition-all duration-200 hover:bg-accent hover:scale-110"
     >
       {icon}
     </a>
@@ -54,16 +54,16 @@ interface TrainerCardProps {
 function TrainerCard({ trainer }: TrainerCardProps) {
   return (
     <motion.div variants={cardVariants} className="h-full">
-      <TiltCard className="h-full bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-xl flex flex-col hover:border-accent/25">
+      <TiltCard className="h-full bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-xl flex flex-col hover:border-accent/25 min-h-[440px]">
         {/* ---------- Image area ---------- */}
-        <div className="relative h-72 overflow-hidden">
+        <div className="relative h-76 overflow-hidden">
           {/* Gradient placeholder simulating a trainer photo */}
           <div
             className={`absolute inset-0 bg-gradient-to-br ${trainer.gradient}`}
           />
 
           {/* Large initials watermark */}
-          <span className="absolute inset-0 flex items-center justify-center text-7xl font-extrabold text-white/10 font-heading select-none">
+          <span className="absolute inset-0 flex items-center justify-center text-8xl font-black text-white/10 font-heading select-none">
             {trainer.initials}
           </span>
 
@@ -101,28 +101,28 @@ function TrainerCard({ trainer }: TrainerCardProps) {
           </div>
         </div>
 
-        {/* ---------- Body ---------- */}
-        <div className="p-6 flex-grow flex flex-col justify-between">
+        {/* ---------- Body with expanded padding ---------- */}
+        <div className="p-8 flex-grow flex flex-col justify-between">
           <div>
-            <h3 className="font-heading text-xl font-bold text-white">
+            <h3 className="font-heading font-extrabold text-xl text-white">
               {trainer.name}
             </h3>
 
-            <p className="mt-1.5 text-sm font-semibold text-accent tracking-wide">
+            <p className="mt-2 text-sm font-bold text-accent tracking-wider uppercase">
               {trainer.specialization}
             </p>
 
-            <p className="mt-1 text-xs font-semibold text-muted tracking-wider uppercase">
+            <p className="mt-1 text-xs font-bold text-muted tracking-widest uppercase">
               {trainer.experience} Experience
             </p>
           </div>
 
           {/* Certification badges */}
-          <div className="mt-4 flex flex-wrap gap-1.5 border-t border-white/5 pt-4">
+          <div className="mt-6 flex flex-wrap gap-2 border-t border-white/5 pt-5">
             {trainer.certifications.map((cert) => (
               <span
                 key={cert}
-                className="flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-1 text-[10px] font-bold text-accent uppercase tracking-wider"
+                className="flex items-center gap-1.5 rounded-full bg-accent/15 px-3 py-1.5 text-[10px] font-extrabold text-accent uppercase tracking-widest"
               >
                 <Award className="h-3 w-3" />
                 {cert}
@@ -145,7 +145,7 @@ export default function Trainers() {
       aria-labelledby="trainers-heading"
     >
       {/* Background glow highlights */}
-      <div className="glow-spot glow-red top-1/3 right-0 scale-150 opacity-5" />
+      <div className="glow-spot glow-gold top-1/3 right-0 scale-150 opacity-5" />
 
       <div className="mx-auto max-w-7xl relative z-10">
         {/* ---------- Section header ---------- */}
@@ -156,7 +156,7 @@ export default function Trainers() {
           transition={{ duration: 0.5 }}
           className="mb-20 text-center"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-accent">
+          <span className="text-accent font-bold text-sm tracking-widest uppercase">
             Meet the Team
           </span>
 
@@ -174,13 +174,13 @@ export default function Trainers() {
           </p>
         </motion.div>
 
-        {/* ---------- Trainer grid ---------- */}
+        {/* ---------- Trainer grid with expanded gaps ---------- */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4"
+          className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 px-4"
         >
           {trainers.map((trainer) => (
             <TrainerCard key={trainer.id} trainer={trainer} />

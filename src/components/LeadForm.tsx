@@ -18,8 +18,7 @@ import confetti from "canvas-confetti";
 
 /* ===================================================================
  * LeadForm — Your Transformation Starts Today
- * Matte charcoal container with dynamic validation, canvas-confetti,
- * and clear CTA conversion parameters.
+ * Spacious, matte charcoal layout with validated inputs.
  * =================================================================== */
 
 interface FormData {
@@ -112,14 +111,12 @@ export default function LeadForm() {
     setIsSubmitting(true);
 
     try {
-      // Simulate API post submission delay
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       setIsSuccess(true);
       setIsSubmitting(false);
       setFormData(initialFormData);
 
-      // Trigger celebration
       confetti({
         particleCount: 120,
         spread: 80,
@@ -145,23 +142,23 @@ export default function LeadForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          className="glass-premium rounded-3xl border border-white/5 p-6 sm:p-10 md:p-14 shadow-2xl relative overflow-hidden"
+          className="glass-premium rounded-3xl border border-white/5 p-8 sm:p-12 md:p-16 shadow-2xl relative overflow-hidden"
         >
           {/* Internal gradient decoration */}
           <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-white/5 pointer-events-none" />
 
           {/* Heading */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <span className="text-accent font-bold text-sm tracking-[0.25em] uppercase">
               Start Today
             </span>
             <h2
               id="lead-heading"
-              className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-3"
+              className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4"
             >
               Your Transformation <span className="gradient-text">Starts Today.</span>
             </h2>
-            <p className="text-muted text-sm mt-3 font-medium max-w-lg mx-auto leading-relaxed">
+            <p className="text-muted text-sm mt-4 font-medium max-w-lg mx-auto leading-relaxed">
               Book your complimentary 1-day pass. Includes InBody body composition scan and custom consultation.
             </p>
           </div>
@@ -184,25 +181,25 @@ export default function LeadForm() {
               <h3 className="font-heading font-extrabold text-2xl text-white mt-6">
                 Reservation Confirmed!
               </h3>
-              <p className="text-muted text-sm mt-3 max-w-sm mx-auto leading-relaxed font-semibold">
+              <p className="text-muted text-sm mt-4 max-w-sm mx-auto leading-relaxed font-semibold">
                 Our coaching staff will contact you within 30 minutes to finalize your schedule.
               </p>
 
               <a
                 href="tel:+919876543210"
-                className="inline-flex items-center gap-2 bg-cta hover:bg-cta-dark text-white rounded-full px-8 py-3.5 font-bold mt-8 transition-colors duration-300 shadow-md shadow-cta/25"
+                className="inline-flex items-center gap-2 bg-cta hover:bg-cta-dark text-white rounded-full px-10 py-4.5 font-bold mt-10 transition-colors duration-300 shadow-md shadow-cta/25 cursor-pointer"
               >
                 <PhoneIcon className="w-4 h-4" aria-hidden="true" />
                 Call Coaching Desk
               </a>
             </motion.div>
           ) : (
-            /* ── Form Inputs ── */
-            <form onSubmit={handleSubmit} noValidate className="relative z-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            /* ── Form Inputs with Expanded Spacing ── */
+            <form onSubmit={handleSubmit} noValidate className="relative z-10 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Full Name */}
                 <div className="flex flex-col">
-                  <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="name" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Full Name <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
@@ -214,16 +211,16 @@ export default function LeadForm() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full transition-colors duration-300 text-sm font-semibold"
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full transition-colors duration-300 text-sm font-semibold"
                       required
                     />
                   </div>
-                  {errors.name && <span className="text-cta text-xs font-bold mt-1.5">{errors.name}</span>}
+                  {errors.name && <span className="text-cta text-xs font-bold mt-2">{errors.name}</span>}
                 </div>
 
                 {/* Phone */}
                 <div className="flex flex-col">
-                  <label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="phone" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Phone Number <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
@@ -235,16 +232,16 @@ export default function LeadForm() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="9876543210"
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full transition-colors duration-300 text-sm font-semibold"
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full transition-colors duration-300 text-sm font-semibold"
                       required
                     />
                   </div>
-                  {errors.phone && <span className="text-cta text-xs font-bold mt-1.5">{errors.phone}</span>}
+                  {errors.phone && <span className="text-cta text-xs font-bold mt-2">{errors.phone}</span>}
                 </div>
 
                 {/* Email */}
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="email" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Email Address <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
@@ -256,16 +253,16 @@ export default function LeadForm() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="you@example.com"
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full transition-colors duration-300 text-sm font-semibold"
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full transition-colors duration-300 text-sm font-semibold"
                       required
                     />
                   </div>
-                  {errors.email && <span className="text-cta text-xs font-bold mt-1.5">{errors.email}</span>}
+                  {errors.email && <span className="text-cta text-xs font-bold mt-2">{errors.email}</span>}
                 </div>
 
                 {/* Fitness Goal */}
                 <div className="flex flex-col">
-                  <label htmlFor="goal" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="goal" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Fitness Goal <span className="text-accent">*</span>
                   </label>
                   <div className="relative">
@@ -275,7 +272,7 @@ export default function LeadForm() {
                       name="goal"
                       value={formData.goal}
                       onChange={handleChange}
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full appearance-none cursor-pointer transition-colors duration-300 text-sm font-semibold"
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full appearance-none cursor-pointer transition-colors duration-300 text-sm font-semibold"
                       required
                     >
                       <option value="" disabled className="text-white/30 bg-surface">Select a goal</option>
@@ -284,12 +281,12 @@ export default function LeadForm() {
                       ))}
                     </select>
                   </div>
-                  {errors.goal && <span className="text-cta text-xs font-bold mt-1.5">{errors.goal}</span>}
+                  {errors.goal && <span className="text-cta text-xs font-bold mt-2">{errors.goal}</span>}
                 </div>
 
                 {/* Current Weight (Optional) */}
                 <div className="flex flex-col">
-                  <label htmlFor="weight" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="weight" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Current Weight (kg) <span className="text-muted-light font-medium">(Optional)</span>
                   </label>
                   <div className="relative">
@@ -301,14 +298,14 @@ export default function LeadForm() {
                       value={formData.weight}
                       onChange={handleChange}
                       placeholder="70"
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full transition-colors duration-300 text-sm font-semibold"
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full transition-colors duration-300 text-sm font-semibold"
                     />
                   </div>
                 </div>
 
                 {/* Preferred Time (Optional) */}
                 <div className="flex flex-col">
-                  <label htmlFor="time" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="time" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Preferred Time <span className="text-muted-light font-medium">(Optional)</span>
                   </label>
                   <div className="relative">
@@ -318,7 +315,7 @@ export default function LeadForm() {
                       name="time"
                       value={formData.time}
                       onChange={handleChange}
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full appearance-none cursor-pointer transition-colors duration-300 text-sm font-semibold"
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full appearance-none cursor-pointer transition-colors duration-300 text-sm font-semibold"
                     >
                       <option value="" disabled className="text-white/30 bg-surface">Select a slot</option>
                       {preferredTimes.map((t) => (
@@ -330,7 +327,7 @@ export default function LeadForm() {
 
                 {/* Custom Message */}
                 <div className="flex flex-col md:col-span-2">
-                  <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-muted mb-2">
+                  <label htmlFor="message" className="text-xs font-extrabold uppercase tracking-widest text-muted mb-3">
                     Additional Context <span className="text-muted-light font-medium">(Optional)</span>
                   </label>
                   <div className="relative">
@@ -341,19 +338,19 @@ export default function LeadForm() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your fitness baseline or target goals..."
-                      rows={3}
-                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-3.5 w-full resize-none transition-colors duration-300 text-sm font-semibold"
+                      rows={4}
+                      className="bg-background border border-white/5 focus:border-accent/40 rounded-xl text-white placeholder:text-white/20 focus:ring-1 focus:ring-accent/45 outline-none pl-12 pr-4 py-4 w-full resize-none transition-colors duration-300 text-sm font-semibold"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Submit Button & Disclaimer */}
-              <div className="mt-8 flex flex-col items-center">
+              <div className="mt-10 flex flex-col items-center pt-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-cta hover:bg-cta-dark text-white rounded-full px-12 py-4 font-heading font-bold text-sm uppercase tracking-wider w-full md:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed shadow-lg shadow-cta/25 cursor-pointer animate-pulse-glow"
+                  className="bg-cta hover:bg-cta-dark text-white rounded-full px-12 py-5 font-heading font-extrabold text-sm uppercase tracking-widest w-full md:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed shadow-lg shadow-cta/25 cursor-pointer animate-pulse-glow"
                   aria-label="Submit free trial pass form"
                 >
                   {isSubmitting ? (
@@ -372,7 +369,7 @@ export default function LeadForm() {
                   )}
                 </button>
 
-                <div className="flex items-center gap-2 mt-4 text-xs text-muted/75 font-semibold">
+                <div className="flex items-center gap-2 mt-5 text-xs text-muted/75 font-bold tracking-wide">
                   <Lock className="w-3.5 h-3.5 text-accent" />
                   <span>No Spam. We&apos;ll contact you within 30 minutes.</span>
                 </div>

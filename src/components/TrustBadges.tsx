@@ -76,14 +76,14 @@ export default function TrustBadges() {
     <section
       id="social-proof"
       ref={sectionRef}
-      className="bg-background py-16 border-b border-white/5 relative overflow-hidden"
+      className="bg-background py-20 border-b border-white/5 relative overflow-hidden"
       aria-labelledby="social-proof-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <h2 id="social-proof-heading" className="sr-only">Social Proof and Trust Metrics</h2>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -92,7 +92,7 @@ export default function TrustBadges() {
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className="bg-surface border border-white/5 rounded-2xl p-6 text-center card-hover hover:border-accent/20 flex flex-col justify-between"
+              className="bg-surface border border-white/5 rounded-3xl p-8 text-center card-hover hover:border-accent/20 flex flex-col justify-between min-h-[220px]"
             >
               <div>
                 {/* Icon Container */}
@@ -104,18 +104,18 @@ export default function TrustBadges() {
                 </div>
 
                 {/* Main Metric Value */}
-                <h3 className="font-heading font-extrabold text-white text-lg mt-4 tracking-tight">
+                <h3 className="font-heading font-extrabold text-white text-lg mt-5 tracking-wide">
                   {item.value}
                 </h3>
 
                 {/* Sub-label */}
-                <span className="text-[10px] font-bold text-accent uppercase tracking-widest block mt-1">
+                <span className="text-[10px] font-bold text-accent uppercase tracking-widest block mt-2">
                   {item.label}
                 </span>
               </div>
 
               {/* Description */}
-              <p className="text-muted text-xs mt-3 leading-relaxed font-semibold">{item.description}</p>
+              <p className="text-muted text-xs mt-4 leading-relaxed font-semibold">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>

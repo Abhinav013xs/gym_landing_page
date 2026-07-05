@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, PhoneCall } from "lucide-rea
 
 /* ===================================================================
  * Contact — Visit Us Today
- * Matte dark information panels and embedded location map.
+ * Spacious, luxury dark location overview.
  * =================================================================== */
 
 interface ContactCard {
@@ -51,7 +51,7 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 } as const;
 
 export default function Contact() {
@@ -67,7 +67,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* ───────── Section Header ───────── */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -84,13 +84,13 @@ export default function Contact() {
           </h2>
         </motion.div>
 
-        {/* ───────── Two-Column Layout ───────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 px-4">
+        {/* ───────── Two-Column Layout with expanded gaps ───────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 px-4">
           {/* ── Left Column: Info Cards + Action Buttons ── */}
-          <div className="flex flex-col justify-between">
-            {/* 2×2 info card grid */}
+          <div className="flex flex-col justify-between min-h-[440px]">
+            {/* 2×2 info card grid with expanded gaps */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -100,7 +100,7 @@ export default function Contact() {
                 <motion.div
                   key={card.id}
                   variants={cardVariants}
-                  className="bg-surface border border-white/5 rounded-3xl p-6 flex items-start gap-4 shadow-xl hover:border-accent/15 transition-all duration-300"
+                  className="bg-surface border border-white/5 rounded-3xl p-8 flex items-start gap-5 shadow-xl hover:border-accent/15 transition-all duration-300"
                 >
                   {/* Icon container */}
                   <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
@@ -109,10 +109,10 @@ export default function Contact() {
 
                   {/* Content */}
                   <div>
-                    <span className="text-[10px] text-accent font-bold uppercase tracking-wider">
+                    <span className="text-[10px] text-accent font-extrabold uppercase tracking-widest block">
                       {card.label}
                     </span>
-                    <p className="font-semibold text-white text-sm mt-1.5 whitespace-pre-line leading-relaxed">
+                    <p className="font-semibold text-white text-sm mt-2 whitespace-pre-line leading-relaxed">
                       {card.value}
                     </p>
                   </div>
@@ -120,9 +120,9 @@ export default function Contact() {
               ))}
             </motion.div>
 
-            {/* Action buttons */}
+            {/* Action buttons with increased margin */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 mt-8"
+              className="flex flex-col sm:flex-row gap-5 mt-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -133,7 +133,7 @@ export default function Contact() {
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full px-8 py-4 flex items-center justify-center gap-2 font-heading font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-emerald-500/10"
+                className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full px-10 py-4.5 flex items-center justify-center gap-2 font-heading font-extrabold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-emerald-500/10"
                 aria-label="Chat with us on WhatsApp"
               >
                 <MessageCircle className="w-4.5 h-4.5" aria-hidden="true" />
@@ -143,7 +143,7 @@ export default function Contact() {
               {/* Call Now */}
               <a
                 href="tel:+919876543210"
-                className="w-full sm:w-auto bg-cta hover:bg-cta-dark text-white rounded-full px-8 py-4 flex items-center justify-center gap-2 font-heading font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-cta/25"
+                className="w-full sm:w-auto bg-cta hover:bg-cta-dark text-white rounded-full px-10 py-4.5 flex items-center justify-center gap-2 font-heading font-extrabold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-cta/25"
                 aria-label="Call us now"
               >
                 <PhoneCall className="w-4.5 h-4.5" aria-hidden="true" />
@@ -154,7 +154,7 @@ export default function Contact() {
 
           {/* ── Right Column: Google Maps Embed ── */}
           <motion.div
-            className="bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-2xl h-full min-h-[400px] relative"
+            className="bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-2xl h-full min-h-[440px] relative"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
