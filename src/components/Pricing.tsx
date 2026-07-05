@@ -105,10 +105,10 @@ function PricingCard({ plan }: PricingCardProps) {
         <a
           href="#lead-form"
           className={`
-            mt-8 block w-full rounded-full py-3.5 text-center font-heading font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md
+            mt-8 block w-full rounded-full py-3.5 text-center font-heading font-bold text-sm transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer
             ${
               highlighted
-                ? "bg-accent text-white hover:bg-accent-dark shadow-accent/20"
+                ? "bg-cta text-white hover:bg-cta-dark shadow-cta/25"
                 : "border-2 border-white/20 text-white hover:border-white hover:bg-white hover:text-black"
             }
           `}

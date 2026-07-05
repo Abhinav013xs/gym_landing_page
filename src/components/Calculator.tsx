@@ -189,8 +189,8 @@ export default function Calculator() {
                 }}
                 className={`px-5 py-3 rounded-full text-sm font-heading font-bold flex items-center gap-2 cursor-pointer transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "bg-accent text-white shadow-lg shadow-accent/20"
-                    : "bg-white text-primary border border-border hover:bg-accent/5 hover:border-accent/30"
+                    ? "bg-accent text-black shadow-lg shadow-accent/25"
+                    : "bg-surface border border-white/5 text-white/80 hover:bg-accent/5 hover:border-accent/30"
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -201,7 +201,7 @@ export default function Calculator() {
         </div>
 
         {/* Calculator Main Box */}
-        <div className="bg-white rounded-3xl border border-border shadow-xl p-6 md:p-10 relative overflow-hidden min-h-[500px]">
+        <div className="bg-surface rounded-3xl border border-white/5 shadow-2xl p-6 md:p-10 relative overflow-hidden min-h-[500px]">
           <AnimatePresence mode="wait">
             
             {/* BMI Tab */}
@@ -253,7 +253,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-primary hover:bg-accent text-white font-heading font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Calculate BMI
                   </button>
@@ -397,7 +397,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-primary hover:bg-accent text-white font-heading font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Calculate Calories
                   </button>
@@ -421,16 +421,16 @@ export default function Calculator() {
 
                       {/* Scenario goals */}
                       <div className="space-y-2">
-                        <div className="flex justify-between items-center bg-white p-3 rounded-xl border border-border/60">
-                          <span className="text-sm font-semibold text-primary">Weight Loss (-500 kcal)</span>
+                        <div className="flex justify-between items-center bg-background border border-white/5 p-3 rounded-xl">
+                          <span className="text-sm font-semibold text-white">Weight Loss (-500 kcal)</span>
                           <span className="font-mono font-bold text-sm text-blue-500">{calResult.tdee - 500} kcal/day</span>
                         </div>
-                        <div className="flex justify-between items-center bg-white p-3 rounded-xl border border-border/60">
-                          <span className="text-sm font-semibold text-primary">Weight Maintenance</span>
+                        <div className="flex justify-between items-center bg-background border border-white/5 p-3 rounded-xl">
+                          <span className="text-sm font-semibold text-white">Weight Maintenance</span>
                           <span className="font-mono font-bold text-sm text-muted">{calResult.tdee} kcal/day</span>
                         </div>
-                        <div className="flex justify-between items-center bg-white p-3 rounded-xl border border-border/60">
-                          <span className="text-sm font-semibold text-primary">Muscle Gain (+500 kcal)</span>
+                        <div className="flex justify-between items-center bg-background border border-white/5 p-3 rounded-xl">
+                          <span className="text-sm font-semibold text-white">Muscle Gain (+500 kcal)</span>
                           <span className="font-mono font-bold text-sm text-emerald-500">{calResult.tdee + 500} kcal/day</span>
                         </div>
                       </div>
@@ -530,7 +530,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-primary hover:bg-accent text-white font-heading font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Estimate Body Fat
                   </button>
@@ -554,19 +554,18 @@ export default function Calculator() {
                         </span>
                       </div>
 
-                      {/* Simple status scale depending on gender */}
-                      <div className="bg-white border border-border/80 rounded-xl p-4 flex justify-around text-xs">
+                       <div className="bg-background border border-white/5 rounded-xl p-4 flex justify-around text-xs">
                         <div>
                           <span className="font-semibold block text-muted">Essential Fat</span>
-                          <span className="font-bold text-primary">{bfGender === "Male" ? "2-5%" : "10-13%"}</span>
+                          <span className="font-bold text-white">{bfGender === "Male" ? "2-5%" : "10-13%"}</span>
                         </div>
                         <div>
                           <span className="font-semibold block text-muted">Athletes</span>
-                          <span className="font-bold text-primary">{bfGender === "Male" ? "6-13%" : "14-20%"}</span>
+                          <span className="font-bold text-white">{bfGender === "Male" ? "6-13%" : "14-20%"}</span>
                         </div>
                         <div>
                           <span className="font-semibold block text-muted">Average Fitness</span>
-                          <span className="font-bold text-primary">{bfGender === "Male" ? "14-24%" : "21-31%"}</span>
+                          <span className="font-bold text-white">{bfGender === "Male" ? "14-24%" : "21-31%"}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -634,7 +633,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-primary hover:bg-accent text-white font-heading font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Calculate Macros
                   </button>
@@ -654,10 +653,10 @@ export default function Calculator() {
 
                       <div className="grid grid-cols-3 gap-3 text-center">
                         {/* Protein Card */}
-                        <div className="bg-white p-4 rounded-xl border border-red-100 shadow-sm relative overflow-hidden">
+                        <div className="bg-background p-4 rounded-xl border border-white/5 shadow-md relative overflow-hidden">
                           <div className="absolute top-0 left-0 w-full h-1 bg-red-500" />
                           <span className="text-xs text-muted block uppercase font-bold">Protein</span>
-                          <span className="text-2xl font-heading font-extrabold text-red-500 block mt-2">
+                          <span className="text-xl sm:text-2xl font-heading font-extrabold text-red-500 block mt-2">
                             {macroResult.protein}g
                           </span>
                           <span className="text-[10px] text-muted mt-1 block">
@@ -666,10 +665,10 @@ export default function Calculator() {
                         </div>
 
                         {/* Carbs Card */}
-                        <div className="bg-white p-4 rounded-xl border border-amber-100 shadow-sm relative overflow-hidden">
+                        <div className="bg-background p-4 rounded-xl border border-white/5 shadow-md relative overflow-hidden">
                           <div className="absolute top-0 left-0 w-full h-1 bg-amber-500" />
                           <span className="text-xs text-muted block uppercase font-bold">Carbs</span>
-                          <span className="text-2xl font-heading font-extrabold text-amber-500 block mt-2">
+                          <span className="text-xl sm:text-2xl font-heading font-extrabold text-amber-500 block mt-2">
                             {macroResult.carbs}g
                           </span>
                           <span className="text-[10px] text-muted mt-1 block">
@@ -678,10 +677,10 @@ export default function Calculator() {
                         </div>
 
                         {/* Fats Card */}
-                        <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm relative overflow-hidden">
+                        <div className="bg-background p-4 rounded-xl border border-white/5 shadow-md relative overflow-hidden">
                           <div className="absolute top-0 left-0 w-full h-1 bg-blue-500" />
                           <span className="text-xs text-muted block uppercase font-bold">Fats</span>
-                          <span className="text-2xl font-heading font-extrabold text-blue-500 block mt-2">
+                          <span className="text-xl sm:text-2xl font-heading font-extrabold text-blue-500 block mt-2">
                             {macroResult.fat}g
                           </span>
                           <span className="text-[10px] text-muted mt-1 block">

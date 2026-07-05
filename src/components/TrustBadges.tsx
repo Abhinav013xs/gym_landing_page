@@ -2,70 +2,71 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  Award,
-  Dumbbell,
-  Apple,
-  Users,
-  Clock,
-  BadgeIndianRupee,
-  type LucideIcon,
-} from "lucide-react";
-import { trustBadges, type TrustBadge } from "@/lib/data";
+import { Star, Users, Flame, Award, ShieldCheck } from "lucide-react";
 
-/* ── Icon Map ───────────────────────────────────────────────────── */
+interface SocialProofItem {
+  id: number;
+  label: string;
+  value: string;
+  icon: React.ReactNode;
+  description: string;
+}
 
-const iconMap: Record<string, LucideIcon> = {
-  Award,
-  Dumbbell,
-  Apple,
-  Users,
-  Clock,
-  BadgeIndianRupee,
+const socialProofItems: SocialProofItem[] = [
+  {
+    id: 1,
+    label: "Average Rating",
+    value: "4.9/5 Rating",
+    icon: <Star className="text-accent w-6 h-6 fill-accent" />,
+    description: "Verified reviews on Google and fitness forums",
+  },
+  {
+    id: 2,
+    label: "Active Roster",
+    value: "1000+ Members",
+    icon: <Users className="text-accent w-6 h-6" />,
+    description: "High-performing athletic community",
+  },
+  {
+    id: 3,
+    label: "Proof of Concept",
+    value: "500+ Transformations",
+    icon: <Flame className="text-accent w-6 h-6" />,
+    description: "Measured body fat and weight reductions",
+  },
+  {
+    id: 4,
+    label: "Expert Coaching",
+    value: "Certified Coaches",
+    icon: <Award className="text-accent w-6 h-6" />,
+    description: "ACE, ISSA, and NASM accredited trainers",
+  },
+  {
+    id: 5,
+    label: "Athletic Trust",
+    value: "Trusted by Athletes",
+    icon: <ShieldCheck className="text-accent w-6 h-6" />,
+    description: "Endorsed by competitive physique athletes",
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
 };
 
-/* ── Single Badge Card ──────────────────────────────────────────── */
-
-interface BadgeCardProps {
-  badge: TrustBadge;
-  index: number;
-}
-
-function BadgeCard({ badge, index }: BadgeCardProps) {
-  const Icon = iconMap[badge.icon];
-
-  return (
-    <motion.div
-      className="bg-surface border border-white/5 rounded-3xl p-6 text-center card-hover hover:border-accent/20 shadow-xl"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-    >
-      {/* Icon container */}
-      <div
-        className="rounded-2xl bg-accent/10 w-14 h-14 flex items-center justify-center mx-auto"
-        aria-hidden="true"
-      >
-        {Icon ? (
-          <Icon className="text-accent w-6 h-6" />
-        ) : (
-          <span className="text-accent text-xl font-bold">?</span>
-        )}
-      </div>
-
-      {/* Title */}
-      <h3 className="font-heading font-bold text-white text-lg mt-5">
-        {badge.title}
-      </h3>
-
-      {/* Description */}
-      <p className="text-muted text-sm mt-2 font-medium leading-relaxed">{badge.description}</p>
-    </motion.div>
-  );
-}
-
-/* ═══════════════════ Trust Badges Section ═══════════════════════ */
+const itemVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
 
 export default function TrustBadges() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -73,43 +74,51 @@ export default function TrustBadges() {
 
   return (
     <section
-      id="trust-badges"
+      id="social-proof"
       ref={sectionRef}
-      className="bg-background py-20 relative overflow-hidden"
-      aria-labelledby="trust-heading"
+      className="bg-background py-16 border-b border-white/5 relative overflow-hidden"
+      aria-labelledby="social-proof-heading"
     >
-      {/* Background ambient light */}
-      <div className="glow-spot glow-orange top-0 left-10 scale-125 opacity-5" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* ── Section Header ── */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-accent font-bold text-sm tracking-[0.2em] uppercase">
-            Why Members Trust Us
-          </span>
-          <h2
-            id="trust-heading"
-            className="text-3xl md:text-4xl font-heading font-extrabold text-white text-center mt-3"
-          >
-            Built on Trust &amp; Results
-          </h2>
-        </motion.div>
+        <h2 id="social-proof-heading" className="sr-only">Social Proof and Trust Metrics</h2>
 
-        {/* ── Badges grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-          {trustBadges.map((badge, index) => (
-            <BadgeCard
-              key={badge.id}
-              badge={badge}
-              index={index}
-            />
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {socialProofItems.map((item) => (
+            <motion.div
+              key={item.id}
+              variants={itemVariants}
+              className="bg-surface border border-white/5 rounded-2xl p-6 text-center card-hover hover:border-accent/20 flex flex-col justify-between"
+            >
+              <div>
+                {/* Icon Container */}
+                <div
+                  className="rounded-xl bg-accent/5 w-12 h-12 flex items-center justify-center mx-auto transition-transform duration-300 hover:scale-110"
+                  aria-hidden="true"
+                >
+                  {item.icon}
+                </div>
+
+                {/* Main Metric Value */}
+                <h3 className="font-heading font-extrabold text-white text-lg mt-4 tracking-tight">
+                  {item.value}
+                </h3>
+
+                {/* Sub-label */}
+                <span className="text-[10px] font-bold text-accent uppercase tracking-widest block mt-1">
+                  {item.label}
+                </span>
+              </div>
+
+              {/* Description */}
+              <p className="text-muted text-xs mt-3 leading-relaxed font-semibold">{item.description}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

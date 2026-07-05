@@ -1,5 +1,5 @@
 /* ===================================================================
- * Centralized data store for the entire landing page.
+ * Centralized data store for Legacy Athletics.
  * All mock content — transformations, programs, trainers, pricing,
  * testimonials, FAQs, timetable, gallery, trust badges — lives here.
  * =================================================================== */
@@ -12,6 +12,8 @@ export interface Transformation {
   gender: "Male" | "Female";
   weightBefore: number;
   weightAfter: number;
+  fatBefore: number; // Body Fat reduction metrics
+  fatAfter: number;
   duration: string;
   program: string;
   quote: string;
@@ -20,18 +22,18 @@ export interface Transformation {
 }
 
 export const transformations: Transformation[] = [
-  { id: 1, name: "Rahul Sharma", age: 28, gender: "Male", weightBefore: 92, weightAfter: 72, duration: "5 Months", program: "Weight Loss", quote: "I never believed I could transform until I joined this gym.", beforeGradient: "from-gray-700 to-gray-900", afterGradient: "from-emerald-600 to-teal-700" },
-  { id: 2, name: "Priya Patel", age: 25, gender: "Female", weightBefore: 78, weightAfter: 58, duration: "6 Months", program: "Transformation Program", quote: "The trainers here completely changed my relationship with fitness.", beforeGradient: "from-gray-600 to-gray-800", afterGradient: "from-rose-500 to-pink-600" },
-  { id: 3, name: "Arjun Reddy", age: 32, gender: "Male", weightBefore: 105, weightAfter: 80, duration: "8 Months", program: "Weight Loss", quote: "Lost 25 kg and gained confidence I never knew I had.", beforeGradient: "from-slate-700 to-slate-900", afterGradient: "from-blue-600 to-cyan-600" },
-  { id: 4, name: "Sneha Gupta", age: 30, gender: "Female", weightBefore: 70, weightAfter: 55, duration: "4 Months", program: "HIIT", quote: "HIIT sessions made me fall in love with working out.", beforeGradient: "from-zinc-700 to-zinc-900", afterGradient: "from-violet-500 to-purple-600" },
-  { id: 5, name: "Vikram Singh", age: 35, gender: "Male", weightBefore: 65, weightAfter: 82, duration: "10 Months", program: "Bodybuilding", quote: "Gained 17 kg of muscle mass. Best investment of my life.", beforeGradient: "from-neutral-600 to-neutral-800", afterGradient: "from-amber-500 to-orange-600" },
-  { id: 6, name: "Ananya Desai", age: 27, gender: "Female", weightBefore: 85, weightAfter: 62, duration: "7 Months", program: "Personal Training", quote: "Personal attention made all the difference in my journey.", beforeGradient: "from-gray-700 to-gray-800", afterGradient: "from-lime-500 to-green-600" },
-  { id: 7, name: "Karan Mehta", age: 40, gender: "Male", weightBefore: 98, weightAfter: 78, duration: "6 Months", program: "Strength Training", quote: "At 40, I'm in the best shape of my life.", beforeGradient: "from-stone-700 to-stone-900", afterGradient: "from-sky-500 to-blue-600" },
-  { id: 8, name: "Deepika Nair", age: 29, gender: "Female", weightBefore: 72, weightAfter: 56, duration: "5 Months", program: "Women's Fitness", quote: "A safe space where I could push my limits without judgment.", beforeGradient: "from-zinc-600 to-zinc-800", afterGradient: "from-fuchsia-500 to-pink-600" },
-  { id: 9, name: "Rohit Joshi", age: 26, gender: "Male", weightBefore: 60, weightAfter: 75, duration: "8 Months", program: "Weight Gain", quote: "Finally gained the mass I've been trying to build for years.", beforeGradient: "from-gray-600 to-gray-900", afterGradient: "from-red-500 to-rose-600" },
-  { id: 10, name: "Meera Kapoor", age: 33, gender: "Female", weightBefore: 90, weightAfter: 68, duration: "9 Months", program: "CrossFit", quote: "CrossFit transformed not just my body but my mental strength.", beforeGradient: "from-slate-600 to-slate-800", afterGradient: "from-teal-500 to-cyan-600" },
-  { id: 11, name: "Aditya Verma", age: 22, gender: "Male", weightBefore: 55, weightAfter: 72, duration: "7 Months", program: "Muscle Building", quote: "From skinny to strong — this gym made it possible.", beforeGradient: "from-neutral-700 to-neutral-900", afterGradient: "from-indigo-500 to-blue-600" },
-  { id: 12, name: "Ritu Agarwal", age: 45, gender: "Female", weightBefore: 82, weightAfter: 65, duration: "6 Months", program: "Senior Fitness", quote: "It's never too late to start. I feel 20 years younger!", beforeGradient: "from-gray-700 to-gray-900", afterGradient: "from-emerald-500 to-green-600" },
+  { id: 1, name: "Rahul Sharma", age: 28, gender: "Male", weightBefore: 92, weightAfter: 72, fatBefore: 28, fatAfter: 14, duration: "5 Months", program: "Weight Loss", quote: "I never believed I could transform until I joined Legacy.", beforeGradient: "from-gray-800 to-gray-950", afterGradient: "from-amber-600 to-amber-700" },
+  { id: 2, name: "Priya Patel", age: 25, gender: "Female", weightBefore: 78, weightAfter: 58, fatBefore: 32, fatAfter: 19, duration: "6 Months", program: "Elite Transformation", quote: "The coaching team here completely redefined my limits.", beforeGradient: "from-gray-800 to-gray-900", afterGradient: "from-amber-600 to-yellow-600" },
+  { id: 3, name: "Arjun Reddy", age: 32, gender: "Male", weightBefore: 105, weightAfter: 80, fatBefore: 30, fatAfter: 15, duration: "8 Months", program: "Weight Loss", quote: "Lost 25 kg and built muscle mass I never thought possible.", beforeGradient: "from-slate-800 to-slate-950", afterGradient: "from-amber-500 to-yellow-500" },
+  { id: 4, name: "Sneha Gupta", age: 30, gender: "Female", weightBefore: 70, weightAfter: 55, fatBefore: 29, fatAfter: 18, duration: "4 Months", program: "HIIT Conditioning", quote: "Every session feels like an elite performance trial.", beforeGradient: "from-zinc-800 to-zinc-950", afterGradient: "from-amber-600 to-amber-800" },
+  { id: 5, name: "Vikram Singh", age: 35, gender: "Male", weightBefore: 65, weightAfter: 82, fatBefore: 18, fatAfter: 10, duration: "10 Months", program: "Physique Hypertrophy", quote: "Gained 17 kg of lean mass. The nutrition setup is top-tier.", beforeGradient: "from-neutral-800 to-neutral-900", afterGradient: "from-amber-600 to-yellow-700" },
+  { id: 6, name: "Ananya Desai", age: 27, gender: "Female", weightBefore: 85, weightAfter: 62, fatBefore: 35, fatAfter: 20, duration: "7 Months", program: "Personal Coaching", quote: "The 3D scanning and personalized metrics kept me fully accountable.", beforeGradient: "from-gray-800 to-gray-950", afterGradient: "from-yellow-600 to-amber-600" },
+  { id: 7, name: "Karan Mehta", age: 40, gender: "Male", weightBefore: 98, weightAfter: 78, fatBefore: 27, fatAfter: 13, duration: "6 Months", program: "Strength Training", quote: "At 40, I have never felt more athletic or disciplined.", beforeGradient: "from-stone-800 to-stone-950", afterGradient: "from-amber-500 to-amber-700" },
+  { id: 8, name: "Deepika Nair", age: 29, gender: "Female", weightBefore: 72, weightAfter: 56, fatBefore: 31, fatAfter: 21, duration: "5 Months", program: "Athletic Conditioning", quote: "An exclusive space with zero distractions and expert coaches.", beforeGradient: "from-zinc-800 to-zinc-900", afterGradient: "from-yellow-500 to-amber-600" },
+  { id: 9, name: "Rohit Joshi", age: 26, gender: "Male", weightBefore: 60, weightAfter: 75, fatBefore: 15, fatAfter: 9, duration: "8 Months", program: "Powerbuilding", quote: "Finally broke my plateau and gained the density I wanted.", beforeGradient: "from-gray-800 to-gray-950", afterGradient: "from-amber-600 to-orange-700" },
+  { id: 10, name: "Meera Kapoor", age: 33, gender: "Female", weightBefore: 90, weightAfter: 68, fatBefore: 36, fatAfter: 22, duration: "9 Months", program: "CrossFit Performance", quote: "Rebuilt my body composition and mental stamina completely.", beforeGradient: "from-slate-800 to-slate-900", afterGradient: "from-yellow-600 to-yellow-500" },
+  { id: 11, name: "Aditya Verma", age: 22, gender: "Male", weightBefore: 55, weightAfter: 72, fatBefore: 16, fatAfter: 8, duration: "7 Months", program: "Muscle Building", quote: "Legacy trainers gave me a science-backed roadmap to get strong.", beforeGradient: "from-neutral-800 to-neutral-950", afterGradient: "from-amber-600 to-yellow-600" },
+  { id: 12, name: "Ritu Agarwal", age: 45, gender: "Female", weightBefore: 82, weightAfter: 65, fatBefore: 34, fatAfter: 22, duration: "6 Months", program: "Longevity Fitness", quote: "Age-friendly training combined with mobility work. I feel 20 years younger.", beforeGradient: "from-gray-800 to-gray-950", afterGradient: "from-amber-500 to-amber-600" },
 ];
 
 // ───────────────────────── Trust Badges ─────────────────────────
@@ -43,12 +45,12 @@ export interface TrustBadge {
 }
 
 export const trustBadges: TrustBadge[] = [
-  { id: 1, title: "Certified Trainers", icon: "Award", description: "All coaches are nationally certified with years of experience" },
-  { id: 2, title: "Modern Equipment", icon: "Dumbbell", description: "State-of-the-art machines and free weights from top brands" },
-  { id: 3, title: "Nutrition Guidance", icon: "Apple", description: "Personalized meal plans and dietary consultations" },
-  { id: 4, title: "Personal Training", icon: "Users", description: "One-on-one sessions tailored to your unique goals" },
-  { id: 5, title: "Flexible Timings", icon: "Clock", description: "Open 5 AM to 11 PM, 7 days a week for your convenience" },
-  { id: 6, title: "Affordable Membership", icon: "BadgeIndianRupee", description: "Premium fitness accessible at competitive prices" },
+  { id: 1, title: "Personal Coaching", icon: "Award", description: "All coaches are certified sports nutritionists and conditioning experts" },
+  { id: 2, title: "Modern Equipment", icon: "Dumbbell", description: "Exclusively equipped with premium Technogym and Olympic setups" },
+  { id: 3, title: "Customized Diet Plans", icon: "Apple", description: "Bi-weekly body scans paired with exact macro configurations" },
+  { id: 4, title: "Premium Environment", icon: "Users", description: "Excellently designed facilities catering to focused athletes" },
+  { id: 5, title: "Flexible Timings", icon: "Clock", description: "Open 5:00 AM to 11:00 PM to match your work schedule" },
+  { id: 6, title: "Group Sessions", icon: "BadgeIndianRupee", description: "Staggered high-energy small group CrossFit and HIIT programs" },
 ];
 
 // ───────────────────────── Why Choose Us ─────────────────────────
@@ -60,18 +62,15 @@ export interface WhyChooseItem {
 }
 
 export const whyChooseUs: WhyChooseItem[] = [
-  { id: 1, title: "Certified Coaches", icon: "GraduationCap", description: "Expert trainers with internationally recognized certifications." },
-  { id: 2, title: "Customized Workout Plans", icon: "ClipboardList", description: "Every plan is built uniquely around your goals and body type." },
-  { id: 3, title: "Diet Consultation", icon: "Salad", description: "In-house nutritionists craft personalized meal strategies." },
-  { id: 4, title: "Personal Attention", icon: "HeartHandshake", description: "Small batch sizes ensure every member gets focused coaching." },
-  { id: 5, title: "Strength Training", icon: "Dumbbell", description: "Dedicated zones with Olympic bars, racks, and machines." },
-  { id: 6, title: "Cardio Programs", icon: "Activity", description: "Treadmills, bikes, and rowing machines for peak endurance." },
-  { id: 7, title: "Weight Loss Programs", icon: "TrendingDown", description: "Science-backed protocols that deliver measurable fat loss." },
-  { id: 8, title: "Weight Gain Programs", icon: "TrendingUp", description: "Structured hypertrophy and nutrition for lean mass gains." },
-  { id: 9, title: "Functional Training", icon: "Zap", description: "Real-world movement patterns for everyday strength and agility." },
-  { id: 10, title: "CrossFit", icon: "Flame", description: "High-intensity WODs that build elite conditioning." },
-  { id: 11, title: "Bodybuilding", icon: "Trophy", description: "Physique coaching for competitive and recreational bodybuilders." },
-  { id: 12, title: "Muscle Building", icon: "Target", description: "Progressive overload training for maximal hypertrophy." },
+  { id: 1, title: "Personal Coaching", icon: "GraduationCap", description: "One-on-one expert trainers mapping your exact path to success." },
+  { id: 2, title: "Customized Diet Plans", icon: "ClipboardList", description: "Targeted metabolic nutrition plans tailored to your lifestyle." },
+  { id: 3, title: "Certified Trainers", icon: "Salad", description: "Coaches holding elite international accreditations (ACE, ISSA, NASM)." },
+  { id: 4, title: "Modern Equipment", icon: "HeartHandshake", description: "State-of-the-art strength and performance machinery." },
+  { id: 5, title: "Premium Environment", icon: "Dumbbell", description: "High-end luxury facility engineered to optimize concentration." },
+  { id: 6, title: "Flexible Timings", icon: "Clock", description: "Matches your executive workflow, open 7 days a week." },
+  { id: 7, title: "Group Sessions", icon: "Activity", description: "Engaging high-intensity classes driven by expert instructors." },
+  { id: 8, title: "Fat Loss Programs", icon: "TrendingDown", description: "Science-backed metabolic programming for active fat loss." },
+  { id: 9, title: "Muscle Gain Programs", icon: "TrendingUp", description: "Structured progressive resistance training for lean hypertrophy." },
 ];
 
 // ───────────────────────── Programs ─────────────────────────
@@ -85,18 +84,14 @@ export interface Program {
 }
 
 export const programs: Program[] = [
-  { id: 1, title: "Weight Loss", description: "Scientifically designed fat-burning protocols combining HIIT, strength training, and nutrition planning for sustainable results.", duration: "3-6 Months", icon: "TrendingDown", gradient: "from-red-600 to-orange-500" },
-  { id: 2, title: "Weight Gain", description: "Structured caloric surplus plans with progressive overload training to build lean muscle mass effectively.", duration: "4-8 Months", icon: "TrendingUp", gradient: "from-blue-600 to-cyan-500" },
-  { id: 3, title: "Strength Training", description: "Build raw strength with compound movements, powerlifting techniques, and periodized programming.", duration: "Ongoing", icon: "Dumbbell", gradient: "from-gray-700 to-gray-500" },
-  { id: 4, title: "Bodybuilding", description: "Sculpt your physique with hypertrophy-focused splits, posing practice, and competition preparation.", duration: "6-12 Months", icon: "Trophy", gradient: "from-amber-600 to-yellow-500" },
-  { id: 5, title: "Powerlifting", description: "Master the squat, bench, and deadlift with expert coaching and progressive strength cycles.", duration: "Ongoing", icon: "Medal", gradient: "from-purple-700 to-violet-500" },
-  { id: 6, title: "CrossFit", description: "Varied functional movements performed at high intensity for total body conditioning.", duration: "Ongoing", icon: "Flame", gradient: "from-orange-600 to-red-500" },
-  { id: 7, title: "HIIT", description: "Short, explosive intervals that torch calories and boost your metabolism for hours post-workout.", duration: "4-8 Weeks", icon: "Zap", gradient: "from-rose-600 to-pink-500" },
-  { id: 8, title: "Cardio", description: "Endurance-focused training with treadmills, bikes, ellipticals, and rowing machines.", duration: "Ongoing", icon: "Activity", gradient: "from-emerald-600 to-teal-500" },
-  { id: 9, title: "Personal Training", description: "One-on-one expert coaching fully customized to your goals, schedule, and fitness level.", duration: "Flexible", icon: "UserCheck", gradient: "from-indigo-600 to-blue-500" },
-  { id: 10, title: "Women's Fitness", description: "Dedicated programs in a comfortable environment focused on toning, flexibility, and strength.", duration: "Ongoing", icon: "Heart", gradient: "from-pink-600 to-rose-400" },
-  { id: 11, title: "Senior Fitness", description: "Gentle yet effective programs for mobility, balance, bone health, and overall vitality.", duration: "Ongoing", icon: "Smile", gradient: "from-teal-600 to-green-500" },
-  { id: 12, title: "Transformation Program", description: "The ultimate 12-week complete body and lifestyle transformation with dedicated coaching.", duration: "12 Weeks", icon: "Sparkles", gradient: "from-red-700 to-amber-500" },
+  { id: 1, title: "Fat Loss Focus", description: "High-metabolic conditioning protocols integrated with targeted calorie deficits for sustainable body transformation.", duration: "12 Weeks", icon: "TrendingDown", gradient: "from-amber-600 to-amber-800" },
+  { id: 2, title: "Muscle Gain split", description: "Hypertrophy-focused training templates emphasizing compound movements and linear progressive loads.", duration: "16 Weeks", icon: "TrendingUp", gradient: "from-amber-500 to-yellow-600" },
+  { id: 3, title: "Strength Training", description: "Build heavy-duty raw power using barbell-focused powerlifting and weightlifting methods.", duration: "Ongoing", icon: "Dumbbell", gradient: "from-neutral-700 to-neutral-800" },
+  { id: 4, title: "Bodybuilding Elite", description: "Esthetic volume protocols, detailing symmetry improvements and posing coaching for advanced athletes.", duration: "24 Weeks", icon: "Trophy", gradient: "from-amber-600 to-yellow-700" },
+  { id: 5, title: "CrossFit Performance", description: "Constant high-intensity functional classes designed to build maximum work capacity and cardiovascular endurance.", duration: "Ongoing", icon: "Flame", gradient: "from-amber-700 to-orange-700" },
+  { id: 6, title: "HIIT Conditioning", description: "Short-burst oxygen-debt intervals that elevate metabolic output for up to 36 hours post-workout.", duration: "8 Weeks", icon: "Zap", gradient: "from-yellow-600 to-amber-700" },
+  { id: 7, title: "Personal Training Deluxe", description: "Highly exclusive one-on-one sessions customized to your specific orthopedic requirements and goals.", duration: "Flexible", icon: "UserCheck", gradient: "from-neutral-800 to-neutral-900" },
+  { id: 8, title: "Women's Conditioning", description: "Tailored programs emphasizing core strength, glute activation, flexibility, and overall athletic tone.", duration: "Ongoing", icon: "Heart", gradient: "from-yellow-500 to-amber-600" },
 ];
 
 // ───────────────────────── Trainers ─────────────────────────
@@ -111,14 +106,10 @@ export interface Trainer {
 }
 
 export const trainers: Trainer[] = [
-  { id: 1, name: "Rajesh Kumar", experience: "12 Years", specialization: "Strength & Conditioning", certifications: ["ACE Certified", "NSCA-CSCS"], gradient: "from-gray-800 to-gray-600", initials: "RK" },
-  { id: 2, name: "Priya Mehra", experience: "8 Years", specialization: "Women's Fitness & Yoga", certifications: ["ISSA Certified", "RYT-500"], gradient: "from-rose-700 to-rose-500", initials: "PM" },
-  { id: 3, name: "Arjun Nair", experience: "10 Years", specialization: "Bodybuilding & Nutrition", certifications: ["NASM-CPT", "Precision Nutrition L1"], gradient: "from-blue-800 to-blue-600", initials: "AN" },
-  { id: 4, name: "Kavitha Iyer", experience: "6 Years", specialization: "CrossFit & HIIT", certifications: ["CrossFit L2", "ACE-GFI"], gradient: "from-purple-700 to-purple-500", initials: "KI" },
-  { id: 5, name: "Suresh Patel", experience: "15 Years", specialization: "Powerlifting", certifications: ["IPF Coach", "NSCA-CSCS"], gradient: "from-amber-700 to-amber-500", initials: "SP" },
-  { id: 6, name: "Anjali Sharma", experience: "7 Years", specialization: "Functional Training & Rehab", certifications: ["ACE-CPT", "FMS Certified"], gradient: "from-teal-700 to-teal-500", initials: "AS" },
-  { id: 7, name: "Vikash Gupta", experience: "9 Years", specialization: "Weight Loss Specialist", certifications: ["NASM-CES", "ACE Health Coach"], gradient: "from-indigo-800 to-indigo-600", initials: "VG" },
-  { id: 8, name: "Neha Kapoor", experience: "5 Years", specialization: "Zumba & Group Fitness", certifications: ["Zumba Licensed", "ACSM-CPT"], gradient: "from-pink-700 to-pink-500", initials: "NK" },
+  { id: 1, name: "Rajesh Kumar", experience: "12 Years", specialization: "Strength & Conditioning", certifications: ["ACE Certified", "NSCA-CSCS"], gradient: "from-neutral-800 to-neutral-950", initials: "RK" },
+  { id: 2, name: "Priya Mehra", experience: "8 Years", specialization: "Athletic Tone & Pilates", certifications: ["ISSA Certified", "RYT-500"], gradient: "from-amber-700 to-amber-900", initials: "PM" },
+  { id: 3, name: "Arjun Nair", experience: "10 Years", specialization: "Bodybuilding & Macros", certifications: ["NASM-CPT", "Precision Nutrition L2"], gradient: "from-neutral-850 to-neutral-950", initials: "AN" },
+  { id: 4, name: "Kavitha Iyer", experience: "6 Years", specialization: "CrossFit & Olympic Lifting", certifications: ["CrossFit L2", "USAW Coach"], gradient: "from-yellow-700 to-amber-900", initials: "KI" },
 ];
 
 // ───────────────────────── Pricing ─────────────────────────
@@ -135,18 +126,18 @@ export interface PricingPlan {
 
 export const pricingPlans: PricingPlan[] = [
   {
-    id: 1, name: "Basic", price: "₹1,499", period: "/month", description: "Perfect for beginners starting their fitness journey",
-    features: ["Access to Gym Floor", "Basic Equipment Usage", "Locker Room Access", "Group Classes (2/week)", "Fitness Assessment", "Mobile App Access"],
+    id: 1, name: "Starter", price: "₹1,999", period: "/month", description: "Essential training setup for active starters",
+    features: ["Access to Gym Floor", "Technogym Equipment Access", "Locker Room & Steam", "Group Classes (2/week)", "Initial Body Composition Scan"],
     highlighted: false,
   },
   {
-    id: 2, name: "Standard", price: "₹2,999", period: "/month", description: "Our most popular plan for serious fitness enthusiasts",
-    features: ["Everything in Basic", "Unlimited Group Classes", "Personal Trainer (2 sessions/week)", "Diet Consultation", "Body Composition Analysis", "Steam & Sauna Access", "Priority Booking", "Progress Tracking"],
-    highlighted: true, badge: "Most Popular",
+    id: 2, name: "Elite", price: "₹5,999", period: "/month", description: "The ultimate training suite highlighting personal coaching",
+    features: ["24/7 Premium Facility Access", "Daily One-on-One Coaching", "Custom Metabolic Nutrition Plans", "Bi-weekly InBody 3D Scans", "Access to Recovery & Sauna Lounges", "VIP Locker & Laundry Service", "Complimentary Guest Passes"],
+    highlighted: true, badge: "Most Requested",
   },
   {
-    id: 3, name: "Premium", price: "₹4,999", period: "/month", description: "The ultimate fitness experience with exclusive perks",
-    features: ["Everything in Standard", "Daily Personal Training", "Custom Meal Plans", "24/7 Trainer Support", "Supplement Guidance", "Recovery Zone Access", "Guest Passes (2/month)", "VIP Locker", "Priority Equipment Access", "Monthly InBody Scan"],
+    id: 3, name: "Pro", price: "₹3,499", period: "/month", description: "Designed for intermediate athletes pushing boundaries",
+    features: ["Full Gym Floor Access", "Unlimited Group Sessions", "Personal Trainer (2/week)", "Monthly Diet Consultations", "Sauna & Steam Bath Access", "Priority Slot Reservations"],
     highlighted: false,
   },
 ];
@@ -159,15 +150,13 @@ export interface Testimonial {
   review: string;
   initials: string;
   program: string;
+  result: string; // Body fat / Weight metric
 }
 
 export const testimonials: Testimonial[] = [
-  { id: 1, name: "Amit Khanna", rating: 5, review: "Absolutely incredible gym! The trainers are knowledgeable, the equipment is world-class, and the atmosphere is motivating. Lost 15 kg in 4 months.", initials: "AK", program: "Weight Loss" },
-  { id: 2, name: "Sunita Rao", rating: 5, review: "As a woman, I felt completely safe and empowered here. The women's fitness program is thoughtfully designed. Highly recommend!", initials: "SR", program: "Women's Fitness" },
-  { id: 3, name: "Manish Tiwari", rating: 5, review: "The personal training sessions are worth every rupee. My trainer understood my goals and pushed me beyond my limits.", initials: "MT", program: "Personal Training" },
-  { id: 4, name: "Pooja Reddy", rating: 4, review: "Great facility with modern equipment. The group classes are energetic and fun. Only wish they had more evening slots.", initials: "PR", program: "Group Classes" },
-  { id: 5, name: "Rajiv Malhotra", rating: 5, review: "I've been to many gyms, but this one stands out. The transformation program delivered real, visible results in just 12 weeks.", initials: "RM", program: "Transformation" },
-  { id: 6, name: "Nisha Verma", rating: 5, review: "The nutrition guidance combined with training made all the difference. I finally understand how to eat right and train smart.", initials: "NV", program: "Diet + Training" },
+  { id: 1, name: "Amit Khanna", rating: 5, review: "Absolutely world-class! The custom diet plans combined with 3D scanning guided my transformation. Gained density and lost 15 kg.", initials: "AK", program: "Weight Loss", result: "Lost 15 kg • Fat -10%" },
+  { id: 2, name: "Sunita Rao", rating: 5, review: "Legacy provides an exclusive, clean environment with certified coaches. The conditioning classes are incredible.", initials: "SR", program: "Women's Fitness", result: "Fat -8% • Gained Strength" },
+  { id: 3, name: "Manish Tiwari", rating: 5, review: "Daily personal coaching changed my life. My trainer was extremely professional and mapped my progressive loads scientifically.", initials: "MT", program: "Elite Transformation", result: "Lost 22 kg • Fat -12%" },
 ];
 
 // ───────────────────────── Timetable ─────────────────────────
@@ -201,14 +190,14 @@ export interface GalleryImage {
 }
 
 export const galleryImages: GalleryImage[] = [
-  { id: 1, title: "Workout Area", gradient: "from-slate-800 to-slate-600", span: "col-span-2 row-span-2" },
-  { id: 2, title: "Cardio Zone", gradient: "from-blue-800 to-blue-600", span: "col-span-1 row-span-1" },
-  { id: 3, title: "Strength Area", gradient: "from-red-900 to-red-700", span: "col-span-1 row-span-1" },
-  { id: 4, title: "Group Classes", gradient: "from-purple-800 to-purple-600", span: "col-span-1 row-span-2" },
-  { id: 5, title: "Modern Machines", gradient: "from-gray-800 to-gray-600", span: "col-span-1 row-span-1" },
-  { id: 6, title: "Locker Room", gradient: "from-teal-800 to-teal-600", span: "col-span-1 row-span-1" },
-  { id: 7, title: "Nutrition Corner", gradient: "from-amber-800 to-amber-600", span: "col-span-2 row-span-1" },
-  { id: 8, title: "Reception", gradient: "from-indigo-800 to-indigo-600", span: "col-span-1 row-span-1" },
+  { id: 1, title: "Workout Area", gradient: "from-neutral-900 to-neutral-800", span: "col-span-2 row-span-2" },
+  { id: 2, title: "Cardio Zone", gradient: "from-amber-950 to-amber-900", span: "col-span-1 row-span-1" },
+  { id: 3, title: "Strength Area", gradient: "from-neutral-850 to-neutral-750", span: "col-span-1 row-span-1" },
+  { id: 4, title: "Group Classes", gradient: "from-yellow-950 to-yellow-900", span: "col-span-1 row-span-2" },
+  { id: 5, title: "Modern Machines", gradient: "from-neutral-900 to-neutral-800", span: "col-span-1 row-span-1" },
+  { id: 6, title: "Locker Room", gradient: "from-amber-900 to-neutral-900", span: "col-span-1 row-span-1" },
+  { id: 7, title: "Nutrition Corner", gradient: "from-neutral-850 to-amber-950", span: "col-span-2 row-span-1" },
+  { id: 8, title: "Reception", gradient: "from-yellow-900 to-neutral-950", span: "col-span-1 row-span-1" },
 ];
 
 // ───────────────────────── FAQs ─────────────────────────
@@ -219,13 +208,13 @@ export interface FAQ {
 }
 
 export const faqs: FAQ[] = [
-  { id: 1, question: "Do beginners need any prior experience?", answer: "Absolutely not! Our trainers specialize in working with beginners. We'll assess your current fitness level and create a customized plan that progresses at your pace. Every expert was once a beginner." },
-  { id: 2, question: "Do you provide diet plans?", answer: "Yes! All Standard and Premium members receive personalized diet consultations. Our in-house nutritionists will create meal plans aligned with your fitness goals, whether it's weight loss, muscle gain, or general health." },
-  { id: 3, question: "Are personal trainers available?", answer: "Yes, we have 8+ certified personal trainers available. Basic members can book pay-per-session, Standard members get 2 sessions/week, and Premium members enjoy daily personal training sessions." },
-  { id: 4, question: "Can women join the gym?", answer: "Absolutely! We have dedicated women's fitness programs, female trainers, and a supportive environment. Our women's section includes dedicated workout areas and specialized classes like Zumba and Yoga." },
-  { id: 5, question: "Is there parking available?", answer: "Yes, we have ample free parking for both two-wheelers and four-wheelers. The parking area is well-lit and secured with CCTV surveillance." },
-  { id: 6, question: "What are the gym timings?", answer: "We're open from 5:00 AM to 11:00 PM, Monday through Saturday. Sunday hours are 6:00 AM to 6:00 PM. We're closed on national holidays." },
-  { id: 7, question: "Is a free trial available?", answer: "Yes! We offer a complimentary 1-day trial that includes a full gym tour, a fitness assessment, and a sample training session with one of our expert trainers. Book yours through our website or call us directly." },
+  { id: 1, question: "Do beginners need any prior experience?", answer: "Absolutely not. Our Elite coaches design entry-level progressions matching your base metrics. We meet you where you are and guide you step-by-step." },
+  { id: 2, question: "Do you provide diet plans?", answer: "Yes, customized nutrition planning is integrated into our Pro and Elite memberships. We calculate your resting metabolic rate and provide daily macronutrient splits." },
+  { id: 3, question: "Are personal trainers available?", answer: "Yes, we have 8+ certified sports science trainers available. Starter plans can book pay-per-session, Pro includes 2 sessions/week, and Elite offers daily custom training." },
+  { id: 4, question: "Can women join the gym?", answer: "Yes, Legacy offers a safe and highly respectful training environment. We have customized conditioning classes, group training modules, and certified female coaches." },
+  { id: 5, question: "Is there parking available?", answer: "Yes, we offer complimentary secure parking for members with 24/7 CCTV surveillance and valet support." },
+  { id: 6, question: "What are the gym timings?", answer: "We are open Monday through Saturday from 5:00 AM to 11:00 PM, and Sunday from 6:00 AM to 6:00 PM." },
+  { id: 7, question: "Is a free trial available?", answer: "Yes. You can book a complimentary 1-day pass which includes a complete facility tour, InBody composition scan, and a custom consultation." },
 ];
 
 // ───────────────────────── Stats ─────────────────────────
@@ -236,8 +225,8 @@ export interface Stat {
 }
 
 export const heroStats: Stat[] = [
-  { value: 500, suffix: "+", label: "Happy Members" },
-  { value: 1200, suffix: "+", label: "Transformations" },
-  { value: 8, suffix: "+", label: "Expert Trainers" },
+  { value: 1000, suffix: "+", label: "Active Members" },
+  { value: 500, suffix: "+", label: "Transformations" },
+  { value: 8, suffix: "+", label: "Certified Coaches" },
   { value: 5, suffix: "★", label: "Average Rating" },
 ];

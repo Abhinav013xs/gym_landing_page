@@ -19,65 +19,65 @@ const inter = Inter({
 
 /* ===== SEO Metadata ===== */
 export const metadata: Metadata = {
-  title: "Jerai Fitness — Transform Your Body, Transform Your Life",
+  title: "Legacy Athletics — Premium Gym & Athletic Club",
   description:
-    "Join Jerai Fitness, Mumbai's premium gym with certified trainers, personalized programs, and 1200+ successful transformations. Book your free trial today!",
+    "Join Legacy Athletics, India's premier luxury fitness club with certified trainers, high-performance coaching, and 500+ successful transformations. Claim your free trial pass!",
   keywords: [
     "gym",
-    "fitness",
+    "fitness club",
     "personal training",
     "weight loss",
     "bodybuilding",
-    "Mumbai gym",
+    "luxury gym",
     "CrossFit",
     "HIIT",
     "transformation",
-    "Jerai Fitness",
+    "Legacy Athletics",
   ],
-  authors: [{ name: "Jerai Fitness" }],
-  creator: "Jerai Fitness",
-  publisher: "Jerai Fitness",
+  authors: [{ name: "Legacy Athletics" }],
+  creator: "Legacy Athletics",
+  publisher: "Legacy Athletics",
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://jeraifitness.com",
-    siteName: "Jerai Fitness",
-    title: "Jerai Fitness — Transform Your Body, Transform Your Life",
+    url: "https://legacyathletics.com",
+    siteName: "Legacy Athletics",
+    title: "Legacy Athletics — Transform Your Body, Build Your Legacy",
     description:
-      "Premium gym with certified trainers, personalized workout plans, and nutrition guidance. Join 500+ happy members.",
+      "Premium luxury gym with certified trainers, personalized conditioning plans, and macro-based nutrition. Join 1000+ active members today.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Jerai Fitness — Premium Gym in Mumbai",
+        alt: "Legacy Athletics — Premium Fitness Club",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jerai Fitness — Transform Your Body, Transform Your Life",
+    title: "Legacy Athletics — Transform Your Body, Build Your Legacy",
     description:
-      "Premium gym with certified trainers and 1200+ successful transformations. Book a free trial today!",
+      "Premium athletic club with certified coaches and 500+ successful transformations. Claim your free trial pass today!",
     images: ["/og-image.jpg"],
   },
-  metadataBase: new URL("https://jeraifitness.com"),
+  metadataBase: new URL("https://legacyathletics.com"),
 };
 
 /* ===== JSON-LD Schema ===== */
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
-  name: "Jerai Fitness",
+  name: "Legacy Athletics",
   description:
-    "Premium gym with certified trainers, personalized workout plans, nutrition guidance, and 1200+ successful transformations.",
-  url: "https://jeraifitness.com",
+    "Premium athletic club and luxury gym with certified coaches, personalized metabolic diet plans, and 500+ successful transformations.",
+  url: "https://legacyathletics.com",
   telephone: "+919876543210",
-  email: "info@jeraifitness.com",
+  email: "info@legacyathletics.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "123 Fitness Street, Andheri West",
+    streetAddress: "123 Legacy Towers, Andheri West",
     addressLocality: "Mumbai",
     addressRegion: "Maharashtra",
     postalCode: "400058",
@@ -97,11 +97,11 @@ const jsonLd = {
       closes: "18:00",
     },
   ],
-  priceRange: "₹₹",
+  priceRange: "₹₹₹",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
-    reviewCount: "200",
+    reviewCount: "500",
     bestRating: "5",
   },
 };
@@ -123,7 +123,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-primary font-body">
+      <body className="min-h-full flex flex-col bg-background text-primary font-body transition-colors duration-300">
         {children}
       </body>
     </html>
