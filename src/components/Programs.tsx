@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { programs } from '@/lib/data';
+import { motion } from "framer-motion";
+import { programs } from "@/lib/data";
+import TiltCard from "@/components/TiltCard";
 import {
   TrendingDown,
   TrendingUp,
@@ -18,7 +19,7 @@ import {
   Clock,
   ArrowRight,
   type LucideIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
 /* ── Icon map: maps string keys from data to actual Lucide components ── */
 const iconMap: Record<string, LucideIcon> = {
@@ -51,33 +52,45 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 } as const;
 
 /* ===================================================================
  * Programs — Displays all available training programs in a
- * responsive card grid with gradient headers, icons, and metadata.
+ * responsive card grid with gradient headers, icons, and 3D tilts.
  * =================================================================== */
 export default function Programs() {
   return (
     <section
       id="programs"
-      className="section-padding bg-background"
+      className="section-padding bg-background relative overflow-hidden"
       aria-labelledby="programs-heading"
     >
-      <div className="mx-auto max-w-7xl">
+      {/* Background glow highlights */}
+      <div className="glow-spot glow-red bottom-10 right-10 scale-150 opacity-10" />
+
+      <div className="mx-auto max-w-7xl relative z-10">
         {/* ── Section header ── */}
-        <div className="mb-14 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent">
+        <div className="mb-16 text-center">
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm font-bold uppercase tracking-[0.2em] text-accent"
+          >
             EXPLORE PROGRAMS
-          </p>
-          <h2
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
             id="programs-heading"
-            className="mt-3 font-heading text-3xl font-extrabold text-primary md:text-5xl"
+            className="mt-3 font-heading text-3xl font-extrabold text-white md:text-5xl"
           >
             Programs Designed For You
-          </h2>
+          </motion.h2>
         </div>
 
         {/* ── Program cards grid ── */}
@@ -86,7 +99,7 @@ export default function Programs() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.05 }}
         >
           {programs.map((program, index) => {
             const Icon = iconMap[program.icon];
@@ -94,71 +107,70 @@ export default function Programs() {
             return (
               <motion.div
                 key={program.id}
-                className="group card-hover overflow-hidden rounded-3xl bg-white shadow-sm"
                 variants={cardVariants}
                 custom={index}
+                className="h-full"
               >
-                {/* ── Gradient header with icon & title overlay ── */}
-                <div
-                  className={`relative flex h-48 items-center justify-center bg-gradient-to-br ${program.gradient}`}
-                >
-                  {/* Large translucent background icon */}
-                  {Icon ? (
-                    <Icon
-                      className="h-20 w-20 text-white/20"
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <Dumbbell
-                      className="h-20 w-20 text-white/20"
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
-                  )}
-
-                  {/* Title overlay with glass effect */}
-                  <div className="absolute inset-x-0 bottom-0 bg-black/30 px-4 py-3 backdrop-blur-sm">
-                    <h3 className="font-heading text-lg font-bold text-white">
-                      {program.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* ── Card body ── */}
-                <div className="p-6">
-                  {/* Program title (visible text for accessibility) */}
-                  <h3 className="font-heading text-xl font-bold text-primary">
-                    {program.title}
-                  </h3>
-
-                  {/* Description — capped to 3 lines */}
-                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">
-                    {program.description}
-                  </p>
-
-                  {/* Footer: duration + learn more */}
-                  <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-                    {/* Duration */}
-                    <span className="flex items-center gap-1.5 text-sm text-muted">
-                      <Clock className="h-4 w-4" aria-hidden="true" />
-                      {program.duration}
-                    </span>
-
-                    {/* Learn more link */}
-                    <button
-                      type="button"
-                      className="flex items-center gap-1 text-sm font-semibold text-accent transition-colors hover:text-accent-dark"
-                      aria-label={`Learn more about ${program.title}`}
-                    >
-                      Learn More
-                      <ArrowRight
-                        className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                <TiltCard className="h-full bg-surface border border-white/5 rounded-3xl overflow-hidden shadow-xl flex flex-col hover:border-accent/20">
+                  {/* ── Gradient header with icon & title overlay ── */}
+                  <div
+                    className={`relative flex h-44 items-center justify-center bg-gradient-to-br ${program.gradient}`}
+                  >
+                    {/* Large translucent background icon */}
+                    {Icon ? (
+                      <Icon
+                        className="h-16 w-16 text-white/20 transition-transform duration-300 group-hover:scale-110"
+                        strokeWidth={1.5}
                         aria-hidden="true"
                       />
-                    </button>
+                    ) : (
+                      <Dumbbell
+                        className="h-16 w-16 text-white/20 transition-transform duration-300 group-hover:scale-110"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                    )}
+
+                    {/* Title overlay with glass effect */}
+                    <div className="absolute inset-x-0 bottom-0 bg-black/45 px-5 py-3.5 backdrop-blur-sm border-t border-white/5">
+                      <h3 className="font-heading text-base font-bold text-white tracking-wide">
+                        {program.title}
+                      </h3>
+                    </div>
                   </div>
-                </div>
+
+                  {/* ── Card body ── */}
+                  <div className="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                      {/* Description — capped to 3 lines */}
+                      <p className="text-sm leading-relaxed text-muted font-medium">
+                        {program.description}
+                      </p>
+                    </div>
+
+                    {/* Footer: duration + learn more */}
+                    <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
+                      {/* Duration */}
+                      <span className="flex items-center gap-1.5 text-xs font-semibold text-muted">
+                        <Clock className="h-4 w-4 text-accent" aria-hidden="true" />
+                        {program.duration}
+                      </span>
+
+                      {/* Learn more link */}
+                      <a
+                        href="#lead-form"
+                        className="flex items-center gap-1 text-xs font-bold text-accent transition-colors hover:text-accent-light"
+                        aria-label={`Enroll in ${program.title}`}
+                      >
+                        Enroll Now
+                        <ArrowRight
+                          className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                          aria-hidden="true"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </TiltCard>
               </motion.div>
             );
           })}
