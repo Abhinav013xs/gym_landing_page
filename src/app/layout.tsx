@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
 /* ===== Font Configuration ===== */
-const outfit = Outfit({
+const syne = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800", "900"],
+  weight: ["700", "800"],
   display: "swap",
 });
 
@@ -14,6 +14,13 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400"],
   display: "swap",
 });
 
@@ -115,7 +122,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      className={`${syne.variable} ${plusJakartaSans.variable} ${bebasNeue.variable} h-full antialiased`}
     >
       <head>
         <script

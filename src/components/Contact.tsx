@@ -133,7 +133,7 @@ export default function Contact() {
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full px-10 py-4.5 flex items-center justify-center gap-2 font-heading font-extrabold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-emerald-500/10"
+                className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full px-10 py-4 flex items-center justify-center gap-2 font-display text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-emerald-500/10 leading-none"
                 aria-label="Chat with us on WhatsApp"
               >
                 <MessageCircle className="w-4.5 h-4.5" aria-hidden="true" />
@@ -143,7 +143,7 @@ export default function Contact() {
               {/* Call Now */}
               <a
                 href="tel:+919876543210"
-                className="w-full sm:w-auto bg-cta hover:bg-cta-dark text-white rounded-full px-10 py-4.5 flex items-center justify-center gap-2 font-heading font-extrabold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-cta/25"
+                className="w-full sm:w-auto bg-cta hover:bg-cta-dark text-white rounded-full px-10 py-4 flex items-center justify-center gap-2 font-display text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-md shadow-cta/25 leading-none"
                 aria-label="Call us now"
               >
                 <PhoneCall className="w-4.5 h-4.5" aria-hidden="true" />

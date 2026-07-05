@@ -350,7 +350,7 @@ export default function LeadForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-cta hover:bg-cta-dark text-white rounded-full px-12 py-5 font-heading font-extrabold text-sm uppercase tracking-widest w-full md:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed shadow-lg shadow-cta/25 cursor-pointer animate-pulse-glow"
+                  className="bg-cta hover:bg-cta-dark text-white rounded-full px-12 py-4.5 font-display text-2xl uppercase tracking-wider w-full md:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed shadow-lg shadow-cta/25 cursor-pointer animate-pulse-glow leading-none"
                   aria-label="Submit free trial pass form"
                 >
                   {isSubmitting ? (

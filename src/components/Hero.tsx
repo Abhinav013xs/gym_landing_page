@@ -197,19 +197,19 @@ export default function Hero() {
         >
           <a
             href="#pricing"
-            className="w-full sm:w-auto bg-cta hover:bg-cta-dark text-white rounded-full px-12 py-5 font-heading font-extrabold text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-xl shadow-cta/35 cursor-pointer"
+            className="w-full sm:w-auto bg-cta hover:bg-cta-dark text-white rounded-full px-12 py-4.5 font-display text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center leading-none shadow-xl shadow-cta/35 cursor-pointer"
           >
             Join Today
           </a>
           <a
             href="#lead-form"
-            className="w-full sm:w-auto border-2 border-accent text-accent hover:bg-accent/5 rounded-full px-12 py-5 font-heading font-extrabold text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 text-center backdrop-blur-md cursor-pointer"
+            className="w-full sm:w-auto border-2 border-accent text-accent hover:bg-accent/5 rounded-full px-12 py-4.5 font-display text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center leading-none backdrop-blur-md cursor-pointer"
           >
             Book Free Trial
           </a>
           <a
             href="#contact"
-            className="w-full sm:w-auto border-2 border-white/20 text-white hover:border-white hover:bg-white/5 rounded-full px-12 py-5 font-heading font-extrabold text-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 text-center backdrop-blur-md cursor-pointer"
+            className="w-full sm:w-auto border-2 border-white/20 text-white hover:border-white hover:bg-white/5 rounded-full px-12 py-4.5 font-display text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center leading-none backdrop-blur-md cursor-pointer"
           >
             Talk To A Coach
           </a>

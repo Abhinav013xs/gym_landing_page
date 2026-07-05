@@ -262,7 +262,7 @@ function TransformationCard({ item, index, onViewStory }: TransformationCardProp
       <div className="px-8 pb-8 pt-2">
         <button
           onClick={() => onViewStory(item.id)}
-          className="w-full bg-white/5 hover:bg-cta hover:text-white border border-white/10 hover:border-cta text-white font-heading font-extrabold text-xs uppercase tracking-widest py-4 rounded-2xl transition-all duration-300 active:scale-95 cursor-pointer"
+          className="w-full bg-white/5 hover:bg-cta hover:text-white border border-white/10 hover:border-cta text-white font-display text-2xl uppercase tracking-wider py-3.5 rounded-2xl transition-all duration-300 active:scale-95 flex items-center justify-center leading-none cursor-pointer"
         >
           View Success Story
         </button>
@@ -507,7 +507,7 @@ export default function Transformations() {
         >
           <a
             href="#lead-form"
-            className="inline-block bg-cta hover:bg-cta-dark text-white font-heading font-extrabold text-sm uppercase tracking-widest rounded-full px-12 py-5 transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg shadow-cta/35 cursor-pointer"
+            className="inline-flex bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider rounded-full px-12 py-4.5 transition-all duration-300 hover:scale-105 active:scale-95 items-center justify-center leading-none shadow-lg shadow-cta/35 cursor-pointer"
           >
             Start My Transformation
           </a>

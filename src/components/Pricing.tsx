@@ -105,7 +105,7 @@ function PricingCard({ plan }: PricingCardProps) {
         <a
           href="#lead-form"
           className={`
-            mt-10 block w-full rounded-full py-4 text-center font-heading font-extrabold text-xs uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer
+            mt-10 flex w-full rounded-full py-3.5 items-center justify-center font-display text-2xl uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md cursor-pointer leading-none
             ${
               highlighted
                 ? "bg-cta text-white hover:bg-cta-dark shadow-cta/25"

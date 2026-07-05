@@ -295,7 +295,7 @@ const Navbar: React.FC = () => {
               {/* Join Now CTA Button */}
               <Link
                 href="#pricing"
-                className="hidden lg:inline-flex items-center bg-cta hover:bg-cta-dark text-white font-heading font-bold text-xs uppercase tracking-wider rounded-full px-6 py-3 transition-all duration-300 hover:shadow-lg hover:shadow-cta/25 active:scale-95 cursor-pointer"
+                className="hidden lg:inline-flex items-center justify-center bg-cta hover:bg-cta-dark text-white font-display text-xl uppercase tracking-wider rounded-full px-6 py-2.5 transition-all duration-300 hover:shadow-lg hover:shadow-cta/25 active:scale-95 cursor-pointer leading-none"
               >
                 Join Today
               </Link>
@@ -425,7 +425,7 @@ const Navbar: React.FC = () => {
                 <Link
                   href="#pricing"
                   onClick={closeMobileMenu}
-                  className="inline-flex items-center bg-cta hover:bg-cta-dark text-white font-heading font-bold text-base uppercase tracking-wider rounded-full px-10 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-cta/25 active:scale-95"
+                  className="inline-flex items-center justify-center bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider rounded-full px-10 py-4 transition-all duration-300 hover:shadow-lg hover:shadow-cta/25 active:scale-95 leading-none"
                 >
                   Join Today
                 </Link>

@@ -171,10 +171,10 @@ const ExitIntent: React.FC = () => {
 
               <button
                 type="submit"
-                className="bg-cta hover:bg-cta-dark text-white font-heading font-bold text-sm uppercase tracking-wider rounded-full w-full py-4 mt-3 flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md shadow-cta/25 cursor-pointer"
+                className="bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider rounded-full w-full py-3.5 mt-3 flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-md shadow-cta/25 cursor-pointer leading-none"
               >
                 Claim My Free Trial
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                <ArrowRight className="w-4.5 h-4.5" aria-hidden="true" />
               </button>
             </form>
 

@@ -253,7 +253,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 leading-none cursor-pointer"
                   >
                     Calculate BMI
                   </button>
@@ -397,7 +397,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 leading-none cursor-pointer"
                   >
                     Calculate Calories
                   </button>
@@ -530,7 +530,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 leading-none cursor-pointer"
                   >
                     Estimate Body Fat
                   </button>
@@ -633,7 +633,7 @@ export default function Calculator() {
 
                   <button
                     type="submit"
-                    className="w-full bg-cta hover:bg-cta-dark text-white font-heading font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-cta hover:bg-cta-dark text-white font-display text-2xl uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 leading-none cursor-pointer"
                   >
                     Calculate Macros
                   </button>
